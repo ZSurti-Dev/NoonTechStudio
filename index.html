@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noon Tech Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="./assets/fevicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="page-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <span class="logo-text"><img src="./assets/Noon Logo.png" alt="Noon Logo"></span>
+                <!-- <span class="logo-dot"></span> -->
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </nav>
+            <div class="contact-btn">
+                <a href="#contact">Let's Talk</a>
+            </div>
+            <div class="menu-toggle">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Elevate Your <span class="gradient-text">Business</span> with <span class="stroke-text">Digital</span> Excellence</h1>
+                    <p>Custom web development and design solutions for restaurants and small businesses that drive growth and enhance customer experience.</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn primary-btn">Start Your Project</a>
+                        <a href="#portfolio" class="btn secondary-btn">View Our Work</a>
+                    </div>
+                </div>
+                <!-- <div class="clients">
+                    <p>Trusted by local businesses</p>
+                    <div class="client-logos">
+                        <div class="client-logo">Logo 1</div>
+                        <div class="client-logo">Logo 2</div>
+                        <div class="client-logo">Logo 3</div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="hero-image">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <!-- <img src="/api/placeholder/550/650" alt="Web design showcase" class="main-img"> -->
+                <div class="floating-card card-1">
+                    <div class="icon"><i class="fas fa-code"></i></div>
+                    <p>Clean Code</p>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                    <p>Mobile First</p>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="icon"><i class="fas fa-rocket"></i></div>
+                    <p>Fast Loading</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="section-header">
+                <span class="subtitle">What We Offer</span>
+                <h2>Services Tailored for Your Business</h2>
+                <p>From concept to completion, we provide comprehensive digital solutions that help your business thrive in the digital landscape.</p>
+            </div>
+
+            <div class="services-grid" id="services">
+                <div class="service-card" data-service="web">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Website Development</h3>
+                    <p>Custom, responsive websites optimized for restaurants and small businesses to attract and convert visitors.</p>
+                    <ul class="features">
+                        <li>Responsive Design</li>
+                        <li>SEO Optimization</li>
+                        <li>Content Management</li>
+                    </ul>
+                    <!-- <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+
+                <div class="service-card" data-service="ui">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Intuitive interfaces and seamless user experiences that keep customers engaged with your business.</p>
+                    <ul class="features">
+                        <li>User Research</li>
+                        <li>Wireframing</li>
+                        <li>Interactive Prototypes</li>
+                    </ul>
+                    <!-- <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+
+                <div class="service-card" data-service="graphic">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>Graphic Design</h3>
+                    <p>Eye-catching visuals and brand assets that communicate your unique identity to customers.</p>
+                    <ul class="features">
+                        <li>Logo Design</li>
+                        <li>Menu Design</li>
+                        <li>Marketing Materials</li>
+                    </ul>
+                    <!-- <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+
+                <div class="service-card" data-service="ecommerce">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-Commerce Solutions</h3>
+                    <p>Online ordering systems and e-commerce platforms to increase your revenue streams.</p>
+                    <ul class="features">
+                        <li>Payment Integration</li>
+                        <li>Inventory Management</li>
+                        <li>Order Tracking</li>
+                    </ul>
+                    <!-- <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio">
+            <div class="section-header">
+                <span class="subtitle">Our Work</span>
+                <h2>Featured Projects</h2>
+                <p>We've helped numerous restaurants and small businesses establish their digital presence. Here are some of our recent projects.</p>
+            </div>
+
+            <!-- <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="restaurant">Restaurants</button>
+                <button class="filter-btn" data-filter="retail">Retail</button>
+                <button class="filter-btn" data-filter="service">Service Business</button>
+            </div> -->
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="restaurant">
+                    <div class="portfolio-img">
+                        <img src="./assets/Bella Cucina Theme.png" alt="Italian Restaurant Website">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Bella Cucina</h3>
+                        <p>Restaurant Website & Online Ordering</p>
+                        <a href="./Portfolio Websites/Bella Cucina/index.html" class="portfolio-link">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="retail">
+                    <div class="portfolio-img">
+                        <img src="./assets/Urban Thread - Theme.png" alt="Boutique Shop Website">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Urban Thread</h3>
+                        <p>E-Commerce & Brand Identity</p>
+                        <a href="./Portfolio Websites/Urban Thread/index.html" class="portfolio-link">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="restaurant">
+                    <div class="portfolio-img">
+                        <img src="./assets/Event Mantra-Theme.png" alt="Event-Mangement">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Event Mantra</h3>
+                        <p>Event Management Website</p>
+                        <a href="./Portfolio Websites/Event Mantra/index.html" class="portfolio-link">View Project</a>
+                    </div>
+                </div>
+                
+
+                <div class="portfolio-item" data-category="service">
+                    <div class="portfolio-img">
+                        <img src="./assets/Serenity Spa_theme.png" alt="Spa Website">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Serenity Spa</h3>
+                        <p>Booking System & Website Design</p>
+                        <a href="./Portfolio Websites/Serenity Spa/index.html" class="portfolio-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="restaurant">
+                    <div class="portfolio-img">
+                        <img src="./assets/Bean Blis Cafe.png" alt="Cafe Website">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Bean Blis Cafe</h3>
+                        <p>Website & Digital Menu Design</p>
+                        <a href="./Portfolio Websites/Morning Brew/index.html" class="portfolio-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="portfolio-cta">
+                <a href="#" class="btn secondary-btn">View All Projects</a>
+            </div> -->
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="process">
+            <div class="section-header">
+                <span class="subtitle">How We Work</span>
+                <h2>Our Development Process</h2>
+                <p>We follow a proven methodology to ensure your project is delivered on time, on budget, and exceeds expectations.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Discovery</h3>
+                        <p>We learn about your business, goals, and target audience to create a strategic plan.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Design</h3>
+                        <p>We create wireframes and visual designs that align with your brand and business objectives.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Development</h3>
+                        <p>Our developers bring the designs to life with clean, efficient, and scalable code.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Testing</h3>
+                        <p>Rigorous quality assurance ensures your website works perfectly across all devices.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>Launch</h3>
+                        <p>We deploy your site and provide training so you can manage your digital presence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="section-header">
+                <span class="subtitle">Client Feedback</span>
+                <h2>What Our Clients Say</h2>
+                <p>We take pride in delivering exceptional results that exceed our clients' expectations.</p>
+            </div>
+
+             <div class="testimonial-slider">
+                <div class="testimonial-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Noon Tech completely transformed our family restaurant's digital presence. The website they created for our traditional South Indian restaurant not only showcases our authentic dishes beautifully but has also increased our takeaway orders by 45%."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Priya Sharma</h4>
+                                <p>Owner, Bella Cucina</p>
+                            </div>
+                        </div>
+                    </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"I am truly impressed by the professionalism of Noon Tech's team. They designed a stunning e-commerce platform for our handloom saree business that perfectly captures the richness of our traditional craftsmanship. Our sales have doubled since launch!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Rajesh Patel</h4>
+                        <p>Founder, Silk Traditions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"The team at Noon Tech was incredibly professional and responsive. They created a beautiful brand identity for our boutique that perfectly captures our vision."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>James Wilson</h4>
+                        <p>Founder, Urban Thread</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Working with Noon Tech Studio was a game-changer for our business. Their attention to detail and technical expertise helped us create a seamless online booking system."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>Director, Serenity Spa</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Noon Tech's expertise in digital marketing transformed our small local chai cafe into a social media sensation. Their brand strategy captured the essence of our fusion beverages, and their website design is just as vibrant as our drinks. Truly grateful for their amazing work!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Meera Kapoor</h4>
+                        <p>Owner, Chai & Beyond</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <div class="testimonial-controls">
+                    <button class="prev-btn"><i class="fas fa-arrow-left"></i></button>
+                    <div class="pagination">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="next-btn"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Elevate Your Online Presence?</h2>
+                <p>Let's discuss how we can help your business thrive in the digital world.</p>
+                <a href="#contact" class="btn primary-btn">Get Started</a>
+            </div>
+            <div class="cta-decoration">
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="section-header">
+                <span class="subtitle">Get In Touch</span>
+                <h2>Book an Appointment</h2>
+                <p>Schedule a free consultation to discuss your project requirements and how we can help your business grow online.</p>
+            </div>
+
+            <div class="contact-container-redesigned">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Email</h4>
+                            <p>noontechstudio@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Phone</h4>
+                            <p>+91 - 80004 03090</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Location</h4>
+                            <p>Vadodara, Gujarat, India.</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/zulkarnain-surti-68277319b" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="booking-container">
+                    <div class="booking-content">
+                        <h3>Schedule a Consultation</h3>
+                        <p>Choose a convenient time for your free 30-minute consultation. We'll discuss your project needs and how we can help you achieve your digital goals.</p>
+                        <div class="booking-features">
+                            <div class="booking-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>No obligation consultation</span>
+                            </div>
+                            <div class="booking-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Discuss your project requirements</span>
+                            </div>
+                            <div class="booking-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Get expert advice and recommendations</span>
+                            </div>
+                        </div>
+                        <a href="https://calendly.com/noontechstudio/30min" target="_blank" class="btn primary-btn booking-btn">
+                            <i class="far fa-calendar-alt"></i>
+                            Book Your Appointment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-top">
+                <div class="footer-head">
+                    <span class="logo-text"><img src="./assets/Noon_Logo-removebg-preview.png" alt="logo"></span>
+                    <!-- <span class="logo-dot"></span> -->
+                    <p class="footer-tagline">Creating digital experiences that drive business growth.</p>
+                </div>                
+                <div class="footer-nav">
+                    <div class="footer-nav-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li>Website Development</a></li>
+                            <li>UI/UX Design</a></li>
+                            <li>Graphic Design</a></li>
+                            <li>E-Commerce Solutions</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#services">About</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#process">Process</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <!-- <div class="footer-nav-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Case Studies</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;All rights reserved with Noon Tech Studio </p>
+                <!-- <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div> -->
+            </div>
+        </footer>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-messaging.js"></script>
+    <script>
+        // Your Firebase configuration object
+        const firebaseConfig = {
+            apiKey: "AIzaSyAVVffpU2DVKIbFcNArlEsQl2BOjiz0iAs",
+            authDomain: "noontechweb.firebaseapp.com",
+            projectId: "noontechweb",
+            storageBucket: "noontechweb.firebasestorage.app",
+            messagingSenderId: "372567095228",
+            appId: "1:372567095228:web:0bc176b4bb308d0f405db9"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const messaging = firebase.messaging();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
