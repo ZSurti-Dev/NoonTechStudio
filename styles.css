@@ -1227,4 +1227,10 @@ footer {
     .dot.active {
         width: 1.5rem;
     }
+      .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
 }
