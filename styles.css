@@ -962,6 +962,9 @@ header {
     .booking-container {
         padding: 1.5rem;
     }
+    .floating-card{
+        display: none;
+    }
     
     .booking-btn {
         width: 100%;
