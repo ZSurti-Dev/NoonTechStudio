@@ -13,6 +13,7 @@ footer {
 .footer-container {
     display: flex;
     align-items: center;
+    justify-content:center;
     gap: 0.5rem; /* space-x-2 equivalent */
     color: #9ca3af; /* text-gray-400 */
     font-size: 1rem;
