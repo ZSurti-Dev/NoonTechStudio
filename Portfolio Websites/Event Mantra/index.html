@@ -3,26 +3,521 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EventMantra </title>
+    <title>EventMantra - Creating Unforgettable Experiences</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-       
+        :root {
+            --primary-navy: #1a365d;
+            --primary-gold: #d4af37;
+            --accent-light: #f7fafc;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f6e05e 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(26, 54, 93, 0.1);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark) !important;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-navy) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.8)),
+                        url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 54, 93, 0.8), rgba(212, 175, 55, 0.3));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero .lead {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .btn-primary {
+            background: var(--gradient-gold);
+            border: none;
+            padding: 15px 40px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-outline-light {
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 15px 40px;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.8s forwards;
+        }
+
+        .btn-outline-light:hover {
+            background: var(--white);
+            color: var(--primary-navy);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 120px 0;
+            background: var(--accent-light);
+        }
+
+        .about-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(26, 54, 93, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 120px 0;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(26, 54, 93, 0.05);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .service-card:hover::before {
+            left: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(26, 54, 93, 0.15);
+            color: var(--white);
+        }
+
+        .service-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 120px 0;
+            background: var(--accent-light);
+        }
+
+        .portfolio-filter {
+            margin-bottom: 4rem;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--primary-navy);
+            color: var(--primary-navy);
+            padding: 10px 25px;
+            margin: 0 10px 10px 0;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-navy);
+            color: var(--white);
+        }
+
+        .portfolio-item {
+            position: relative;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            transition: all 0.3s ease;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 54, 93, 0.8), rgba(212, 175, 55, 0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 120px 0;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 0 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            position: relative;
+            height: auto;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 6rem;
+            color: var(--primary-gold);
+            font-family: serif;
+        }
+
+        .client-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            border: 4px solid var(--primary-gold);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 120px 0;
+            background: var(--accent-light);
+        }
+
+        .contact-form {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-control {
+            border: 2px solid rgba(26, 54, 93, 0.1);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-navy);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-gold);
+            color: var(--primary-navy);
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .lead {
+                font-size: 1.2rem;
+            }
+            
+            .btn-outline-light {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            visibility: visible;
+            transition: all 0.5s ease;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--accent-light);
+            border-top: 4px solid var(--primary-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><strong>EventMantra</strong></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#home">EventMantra</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#services">Services</a>
@@ -40,104 +535,285 @@
             </div>
         </div>
     </nav>
-    <!-- Hero Section Starts Here -->
+
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <h1 class="display-3 mb-4">Welcome to EventMantra</h1>
-            <p class="lead mb-">Your premier event management partner in Asia</p>
-            <a href="#contact" class="btn btn-primary btn-lg">Get Started</a>
+            <div class="hero-content">
+                <h1>Creating Unforgettable Experiences</h1>
+                <p class="lead">Your premier event management partner in Asia, crafting moments that last a lifetime</p>
+                <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                <a href="#services" class="btn btn-outline-light">View Our Services</a>
+            </div>
         </div>
     </section>
 
-    <!-- Services Section Starts Here -->
-    <section id="services" class="py-5">
+    <!-- About Section -->
+    <section id="about" class="about-section">
         <div class="container">
-            <h2 class="text-center mb-5">Our Services</h2>
+            <div class="text-center mb-5">
+                <h2 class="section-title fade-in-up">About EventMantra</h2>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-in-up">
+                    <div class="about-card">
+                        <h3 class="mb-4">Our Story</h3>
+                        <p class="mb-4">Founded with a passion for creating extraordinary experiences, EventMantra has been at the forefront of event management in Asia for over a decade. We believe that every event tells a story, and our mission is to make yours unforgettable.</p>
+                        <p class="mb-4">Our team of dedicated professionals combines creativity, precision, and years of experience to deliver events that exceed expectations and create lasting memories.</p>
+                        <div class="row text-center mt-4">
+                            <div class="col-4">
+                                <h4 class="text-primary">500+</h4>
+                                <p>Events Managed</p>
+                            </div>
+                            <div class="col-4">
+                                <h4 class="text-primary">98%</h4>
+                                <p>Client Satisfaction</p>
+                            </div>
+                            <div class="col-4">
+                                <h4 class="text-primary">10+</h4>
+                                <p>Years Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Our Team" class="img-fluid rounded-3 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title fade-in-up">Our Services</h2>
+                <p class="lead fade-in-up">Comprehensive event management solutions tailored to your needs</p>
+            </div>
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body text-center text-align">
-                            <i class="fas fa-calendar-alt fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Event Planning</h5>
-                            <p class="card-text">Comprehensive event planning and coordination services for any occasion.</p>
-                        </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card fade-in-up">
+                        <i class="fas fa-heart service-icon"></i>
+                        <h4 class="mb-3">Wedding Planning</h4>
+                        <p>Turn your dream wedding into reality with our comprehensive planning services, from venue selection to day-of coordination.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li>• Venue Selection</li>
+                            <li>• Vendor Management</li>
+                            <li>• Day-of Coordination</li>
+                            <li>• Timeline Planning</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body text-center text-align">
-                            <i class="fas fa-microphone fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Conference Management</h5>
-                            <p class="card-text">Expert management of conferences, from small seminars to large conventions.</p>
-                        </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card fade-in-up">
+                        <i class="fas fa-briefcase service-icon"></i>
+                        <h4 class="mb-3">Corporate Events</h4>
+                        <p>Professional corporate event management for conferences, seminars, product launches, and company celebrations.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li>• Conference Management</li>
+                            <li>• Product Launches</li>
+                            <li>• Team Building</li>
+                            <li>• Award Ceremonies</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body text-center text-align">
-                            <i class="fas fa-glass-cheers fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Wedding Planning</h5>
-                            <p class="card-text">Turn your dream wedding into reality with our experienced planners.</p>
-                        </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card fade-in-up">
+                        <i class="fas fa-birthday-cake service-icon"></i>
+                        <h4 class="mb-3">Private Parties</h4>
+                        <p>Celebrate life's special moments with our personalized party planning services for birthdays, anniversaries, and more.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li>• Birthday Parties</li>
+                            <li>• Anniversary Celebrations</li>
+                            <li>• Theme Parties</li>
+                            <li>• Family Reunions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card fade-in-up">
+                        <i class="fas fa-music service-icon"></i>
+                        <h4 class="mb-3">Entertainment Events</h4>
+                        <p>From concerts to festivals, we create memorable entertainment experiences that captivate audiences.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li>• Concerts & Shows</li>
+                            <li>• Music Festivals</li>
+                            <li>• Cultural Events</li>
+                            <li>• Art Exhibitions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card fade-in-up">
+                        <i class="fas fa-utensils service-icon"></i>
+                        <h4 class="mb-3">Catering Services</h4>
+                        <p>Exquisite catering solutions with customized menus to delight your guests and complement your event perfectly.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li>• Custom Menus</li>
+                            <li>• Dietary Accommodations</li>
+                            <li>• Professional Staff</li>
+                            <li>• Setup & Service</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card fade-in-up">
+                        <i class="fas fa-camera service-icon"></i>
+                        <h4 class="mb-3">Event Production</h4>
+                        <p>Complete event production services including audio-visual, lighting, staging, and photography to make your event shine.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li>• Audio-Visual Setup</li>
+                            <li>• Lighting Design</li>
+                            <li>• Stage Management</li>
+                            <li>• Photography & Video</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section Starts Here -->
-    <section id="portfolio" class="py-5 bg-light">
-        <div class="container portfolio">
-            <h2 class="text-center mb-5">Our Portfolio</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <img src="./assets/event-1.jpg" alt="Event 1" class="img-fluid rounded">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title fade-in-up">Our Portfolio</h2>
+                <p class="lead fade-in-up">A showcase of our most memorable events</p>
+            </div>
+            
+            <div class="portfolio-filter text-center fade-in-up">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="wedding">Weddings</button>
+                <button class="filter-btn" data-filter="corporate">Corporate</button>
+                <button class="filter-btn" data-filter="private">Private Parties</button>
+                <button class="filter-btn" data-filter="entertainment">Entertainment</button>
+            </div>
+
+            <div class="row portfolio-grid">
+                <div class="col-lg-4 col-md-6 portfolio-item fade-in-up" data-category="wedding">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Elegant Wedding">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <h5>Elegant Garden Wedding</h5>
+                            <p>A romantic outdoor celebration</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="./assets/event-2.jpg" alt="Event 2" class="img-fluid rounded">
+                <div class="col-lg-4 col-md-6 portfolio-item fade-in-up" data-category="corporate">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Corporate Conference">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <h5>Tech Conference 2023</h5>
+                            <p>Innovation meets networking</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4 mb-4 img-size">
-                    <img src="./assets/event-5.jpg" alt="Event 3" class="img-fluid rounded">
+                <div class="col-lg-4 col-md-6 portfolio-item fade-in-up" data-category="private">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Birthday Celebration">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <h5>50th Birthday Bash</h5>
+                            <p>A milestone celebration to remember</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4 mb-4 img-size">
-                    <img src="./assets/event-3.jpg" alt="Event 3" class="img-fluid rounded">
+                <div class="col-lg-4 col-md-6 portfolio-item fade-in-up" data-category="entertainment">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Music Festival">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <h5>Summer Music Festival</h5>
+                            <p>Three days of amazing performances</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4 mb-4 img-size">
-                    <img src="./assets/event-6.jpg" alt="Event 3" class="img-fluid rounded">
+                <div class="col-lg-4 col-md-6 portfolio-item fade-in-up" data-category="wedding">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Beach Wedding">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <h5>Seaside Wedding</h5>
+                            <p>Beachfront vows at sunset</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4 mb-4 img-size">
-                    <img src="./assets/event-7.jpg" alt="Event 3" class="img-fluid rounded">
+                <div class="col-lg-4 col-md-6 portfolio-item fade-in-up" data-category="corporate">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Product Launch">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <h5>Product Launch Event</h5>
+                            <p>Unveiling innovation in style</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-5">
-        <div class="container client-container">
-            <h2 class="text-center mb-5">What Our Clients Say</h2>
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title fade-in-up">What Our Clients Say</h2>
+                <p class="lead fade-in-up">Don't just take our word for it - hear from our satisfied clients</p>
+            </div>
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card testimonial-card h-100">
-                        <div class="card-body">
-                            <p class="card-text">"EventMantra made our company conference a huge success. Their attention to detail was impressive!"</p>
-                            <footer class="blockquote-footer">John Peterson, CEO of TechCorp</footer>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card fade-in-up">
+                        <div class="text-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
+                                 alt="Client" class="client-photo">
+                        </div>
+                        <p class="mb-4">"EventMantra transformed our company's annual conference into an unforgettable experience. Their attention to detail and professional approach exceeded all our expectations."</p>
+                        <div class="text-center">
+                            <h6 class="mb-1">John Peterson</h6>
+                            <small class="text-muted">CEO, TechCorp</small>
+                            <div class="mt-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card testimonial-card h-100">
-                        <div class="card-body">
-                            <p class="card-text">"Our wedding day was perfect thanks to EventMantra. They took care of everything!"</p>
-                            <footer class="blockquote-footer">Ruchika Patel, Happy Bride</footer>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card fade-in-up">
+                        <div class="text-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616c2e14b51?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
+                                 alt="Client" class="client-photo">
+                        </div>
+                        <p class="mb-4">"Our wedding day was absolutely perfect thanks to EventMantra. They handled every detail with care and made our dream wedding come true. We couldn't be happier!"</p>
+                        <div class="text-center">
+                            <h6 class="mb-1">Ruchika Patel</h6>
+                            <small class="text-muted">Happy Bride</small>
+                            <div class="mt-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card testimonial-card h-100">
-                        <div class="card-body">
-                            <p class="card-text">"The product launch event organized by EventPro exceeded our expectations. Highly recommended!"</p>
-                            <footer class="blockquote-footer">Mark Johnson, Marketing Director</footer>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card fade-in-up">
+                        <div class="text-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
+                                 alt="Client" class="client-photo">
+                        </div>
+                        <p class="mb-4">"The product launch event organized by EventMantra was beyond our expectations. Professional, creative, and flawlessly executed. Highly recommended!"</p>
+                        <div class="text-center">
+                            <h6 class="mb-1">Mark Johnson</h6>
+                            <small class="text-muted">Marketing Director</small>
+                            <div class="mt-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -146,91 +822,341 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
+    <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="text-center mb-5">Contact Us</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <form id="contactForm">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </div>
-                    </form>
+            <div class="text-center mb-5">
+                <h2 class="section-title fade-in-up">Get In Touch</h2>
+                <p class="lead fade-in-up">Ready to plan your next unforgettable event? Let's start the conversation</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-form fade-in-up">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="tel" class="form-control" placeholder="Phone Number">
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control" required>
+                                        <option value="">Event Type</option>
+                                        <option value="wedding">Wedding</option>
+                                        <option value="corporate">Corporate Event</option>
+                                        <option value="private">Private Party</option>
+                                        <option value="entertainment">Entertainment Event</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" placeholder="Event Date">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control" placeholder="Expected Guests">
+                                </div>
+                            </div>
+                            <textarea class="form-control" rows="5" placeholder="Tell us about your event vision..." required></textarea>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-4 text-center fade-in-up">
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+                        <h5>Visit Us</h5>
+                        <p>123 Event Plaza<br>Mumbai, Maharashtra 400001<br>India</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center fade-in-up">
+                    <div class="contact-info">
+                        <i class="fas fa-phone fa-2x text-primary mb-3"></i>
+                        <h5>Call Us</h5>
+                        <p>+91 98765 43210<br>+91 87654 32109</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center fade-in-up">
+                    <div class="contact-info">
+                        <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
+                        <h5>Email Us</h5>
+                        <p>info@eventmantra.com<br>support@eventmantra.com</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Starts Here -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container text-center">
-            <p>&copy; 2024 EventMantra. All rights reserved.</p>
-            <div class="mt-3">
-                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">EventMantra</div>
+                    <p class="mb-4">Creating unforgettable experiences across Asia with passion, precision, and professionalism. Your dream event is our mission.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-light">Home</a></li>
+                        <li><a href="#about" class="text-light">About</a></li>
+                        <li><a href="#services" class="text-light">Services</a></li>
+                        <li><a href="#portfolio" class="text-light">Portfolio</a></li>
+                        <li><a href="#contact" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="mb-3">Services</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Wedding Planning</a></li>
+                        <li><a href="#" class="text-light">Corporate Events</a></li>
+                        <li><a href="#" class="text-light">Private Parties</a></li>
+                        <li><a href="#" class="text-light">Entertainment Events</a></li>
+                        <li><a href="#" class="text-light">Event Production</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="mb-3">Newsletter</h6>
+                    <p>Stay updated with our latest events and offers.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
             </div>
-            <div class="footer-container">
-                <span>Designed</span>
-                <span>by</span>
-                <span class="studio-name">
-                    <a href="https://www.noontechstudio.com/">
-                        Noon Tech Studio
-                    </a>
-                </span>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 EventMantra. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-container">
+                        <span>Designed with</span>
+                        <span class="heart">♥</span>
+                        <span>by</span>
+                        <span class="studio-name">
+                            <a href="https://www.noontechstudio.com/">Noon Tech Studio</a>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
-        
-
     </footer>
 
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-    $(document).ready(function() {
-        // Smooth scrolling for navigation links
-        $('a[href^="#"]').on('click', function(e) {
-            e.preventDefault();
-            var target = $(this.getAttribute('href'));
-            if (target.length) {
-                $('html, body').stop().animate({
-                    scrollTop: target.offset().top
-                }, 1000);
+        $(document).ready(function() {
+            // Remove loading overlay
+            setTimeout(function() {
+                $('#loading').addClass('hidden');
+            }, 1000);
+
+            // Navbar scroll effect
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+            });
+
+            // Smooth scrolling for navigation links
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 80
+                    }, 1000);
+                }
+            });
+
+            // Form submission handling
+            $('#contactForm').on('submit', function(e) {
+                e.preventDefault();
+                // Show success message
+                $(this).html('<div class="text-center"><h4 class="text-success mb-3">Thank You!</h4><p>Your message has been sent successfully. Our team will get back to you within 24 hours.</p></div>');
+            });
+
+            // Portfolio filter functionality
+            $('.filter-btn').on('click', function() {
+                $('.filter-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                var filter = $(this).data('filter');
+                $('.portfolio-item').hide().fadeOut(300);
+                
+                setTimeout(function() {
+                    if (filter === 'all') {
+                        $('.portfolio-item').fadeIn(300);
+                    } else {
+                        $('.portfolio-item[data-category="' + filter + '"]').fadeIn(300);
+                    }
+                }, 300);
+            });
+
+            // Scroll animations
+            function checkScroll() {
+                $('.fade-in-up').each(function() {
+                    var elementTop = $(this).offset().top;
+                    var windowHeight = $(window).height();
+                    var scroll = $(window).scrollTop();
+                    
+                    if (scroll + windowHeight > elementTop + 100) {
+                        $(this).addClass('visible');
+                    }
+                });
+            }
+
+            $(window).on('scroll', checkScroll);
+            checkScroll(); // Check on load
+
+            // Counter animation for statistics
+            function animateCounters() {
+                $('.counter').each(function() {
+                    var $this = $(this);
+                    var countTo = $this.attr('data-count');
+                    
+                    $({ countNum: $this.text() }).animate({
+                        countNum: countTo
+                    }, {
+                        duration: 2000,
+                        easing: 'linear',
+                        step: function() {
+                            $this.text(Math.floor(this.countNum));
+                        },
+                        complete: function() {
+                            $this.text(this.countNum);
+                        }
+                    });
+                });
+            }
+
+            // Trigger counter animation when about section is visible
+            var aboutTriggered = false;
+            $(window).on('scroll', function() {
+                if (!aboutTriggered && $(window).scrollTop() + $(window).height() > $('#about').offset().top + 200) {
+                    animateCounters();
+                    aboutTriggered = true;
+                }
+            });
+
+            // Newsletter subscription
+            $('.input-group .btn').on('click', function() {
+                var email = $(this).siblings('input[type="email"]').val();
+                if (email) {
+                    alert('Thank you for subscribing to our newsletter!');
+                    $(this).siblings('input[type="email"]').val('');
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            });
+
+            // Add loading states to buttons
+            $('.btn').on('click', function() {
+                var $btn = $(this);
+                if (!$btn.hasClass('loading')) {
+                    $btn.addClass('loading');
+                    var originalText = $btn.html();
+                    $btn.html('<i class="fas fa-spinner fa-spin"></i> Loading...');
+                    
+                    setTimeout(function() {
+                        $btn.removeClass('loading').html(originalText);
+                    }, 1500);
+                }
+            });
+
+            // Add parallax effect to hero section
+            $(window).scroll(function() {
+                var scrollTop = $(this).scrollTop();
+                $('.hero').css('background-position', 'center ' + (scrollTop * 0.5) + 'px');
+            });
+
+            // Add typing effect to hero text
+            function typeWriter(element, text, speed) {
+                var i = 0;
+                element.innerHTML = '';
+                
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    }
+                }
+                type();
+            }
+
+            // Lazy loading for images
+            $('img').each(function() {
+                $(this).on('load', function() {
+                    $(this).addClass('loaded');
+                });
+            });
+
+            // Add intersection observer for better performance
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.fade-in-up').forEach(el => {
+                    observer.observe(el);
+                });
             }
         });
 
-        // Form submission handling
-        $('#contactForm').on('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! Our team will get back to you soon.');
-            this.reset();
-        });
-
-        // Add animation to service cards on scroll
-        $(window).on('scroll', function() {
-            $('.service-card').each(function() {
-                var cardTop = $(this).offset().top;
-                var windowHeight = $(window).height();
-                var scroll = $(window).scrollTop();
-                if (scroll + windowHeight > cardTop + 100) {
-                    $(this).css({
-                        'opacity': '1',
-                        'transform': 'translateY(0)'
+        // Add some global utility functions
+        window.EventMantra = {
+            showNotification: function(message, type = 'success') {
+                const notification = $(`
+                    <div class="alert alert-${type} alert-dismissible fade show position-fixed" 
+                         style="top: 100px; right: 20px; z-index: 9999;">
+                        ${message}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                `);
+                
+                $('body').append(notification);
+                
+                setTimeout(function() {
+                    notification.fadeOut(function() {
+                        $(this).remove();
                     });
-                }
-            });
-        });
-    });
+                }, 5000);
+            },
+            
+            scrollToSection: function(sectionId) {
+                $('html, body').animate({
+                    scrollTop: $(sectionId).offset().top - 80
+                }, 1000);
+            }
+        };
     </script>
 </body>
 </html>
