@@ -188,80 +188,124 @@
             border-radius: 2px;
         }
 
-        /* About Section */
         .about-section {
-            padding: 120px 0;
-            background: var(--accent-light);
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #007bff, #6f42c1);
+            border-radius: 2px;
         }
 
         .about-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(26, 54, 93, 0.05);
-            transition: all 0.3s ease;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
-        .about-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+        .about-card h3 {
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1.8rem;
         }
 
-        /* Services Section */
-        .services-section {
-            padding: 120px 0;
+        .about-card p {
+            color: #6c757d;
+            line-height: 1.7;
+            font-size: 1.1rem;
         }
 
-        .service-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(26, 54, 93, 0.05);
-            height: 100%;
+        .text-primary {
+            background: linear-gradient(90deg, #007bff, #6f42c1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            font-size: 2rem !important;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .image-container {
             position: relative;
             overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .image-container img {
             width: 100%;
-            height: 100%;
-            background: var(--gradient-primary);
-            transition: all 0.4s ease;
-            z-index: 1;
+            height: auto;
+            transition: transform 0.3s ease;
         }
 
-        .service-card:hover::before {
-            left: 0;
+        .image-container:hover img {
+            transform: scale(1.05);
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(26, 54, 93, 0.15);
-            color: var(--white);
+        .stats-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .service-card > * {
-            position: relative;
-            z-index: 2;
+        .stats-overlay h6 {
+            margin: 0;
+            color: #2c3e50;
+            font-weight: 600;
         }
 
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: var(--primary-gold);
-            transition: all 0.3s ease;
+        .stats-overlay small {
+            color: #6c757d;
         }
 
-        .service-card:hover .service-icon {
-            color: var(--white);
-            transform: scale(1.1);
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-card {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
         }
 
         /* Portfolio Section */
@@ -548,7 +592,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
             <div class="text-center mb-5">
@@ -562,7 +605,7 @@
                         <p class="mb-4">Our team of dedicated professionals combines creativity, precision, and years of experience to deliver events that exceed expectations and create lasting memories.</p>
                         <div class="row text-center mt-4">
                             <div class="col-4">
-                                <h4 class="text-primary">500+</h4>
+                                <h4 class="text-primary">300+</h4>
                                 <p>Events Managed</p>
                             </div>
                             <div class="col-4">
@@ -576,9 +619,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <img src="./assets/Herobg.jpeg" 
-                         alt="Our Team" class="img-fluid rounded-3 shadow-lg">
+                <div class="col-lg-6 fade-in-up">
+                    <div class="image-container">
+                        <!-- Using a placeholder image that will work -->
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Elegant Event Setup with Purple Lighting" 
+                             class="img-fluid">
+                        <div class="stats-overlay">
+                            <h6>Premium Events</h6>
+                            <small>Luxury & Corporate</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1157,6 +1208,24 @@
                 }, 1000);
             }
         };
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
