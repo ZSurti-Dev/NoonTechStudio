@@ -435,6 +435,7 @@
             background: var(--primary-navy);
             color: var(--white);
             padding: 60px 0 30px;
+            margin-top: auto;
         }
 
         .footer-brand {
@@ -442,6 +443,37 @@
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .footer h6 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer ul li a:hover {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .social-links {
+            margin-top: 1rem;
         }
 
         .social-links a {
@@ -453,13 +485,90 @@
             text-align: center;
             line-height: 50px;
             border-radius: 50%;
-            margin: 0 10px;
+            margin: 0 10px 10px 0;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .social-links a:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            color: var(--primary-navy);
+        }
+
+        .newsletter-form {
+            margin-top: 1rem;
+        }
+
+        .newsletter-form .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form .form-control {
+            border: none;
+            padding: 12px 15px;
+            border-radius: 25px 0 0 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .newsletter-form .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter-form .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: none;
+            color: var(--white);
+        }
+
+        .newsletter-form .btn-primary {
+            background: var(--gradient-gold);
+            border: none;
+            color: var(--primary-navy);
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 0 25px 25px 0;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .heart {
+            color: #e74c3c;
+            font-size: 1.2em;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        .studio-name a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .studio-name a:hover {
+            color: #f4d03f;
+            text-decoration: underline;
         }
 
         /* Animations */
@@ -474,6 +583,15 @@
             }
         }
 
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
         .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
@@ -485,7 +603,27 @@
             transform: translateY(0);
         }
 
-        /* Responsive Design */
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .footer-brand {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            
+            .social-links {
+                text-align: center;
+            }
+            
+            .footer-container {
+                justify-content: center;
+                text-align: center;
+                margin-top: 1rem;
+            }
+            
+            .footer {
+                padding: 40px 0 20px;
+            }
+        }        /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -967,50 +1105,54 @@
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h6 class="mb-3">Quick Links</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#home" class="text-light">Home</a></li>
-                        <li><a href="#about" class="text-light">About</a></li>
-                        <li><a href="#services" class="text-light">Services</a></li>
-                        <li><a href="#portfolio" class="text-light">Portfolio</a></li>
-                        <li><a href="#contact" class="text-light">Contact</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h6 class="mb-3">Services</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light">Wedding Planning</a></li>
-                        <li><a href="#" class="text-light">Corporate Events</a></li>
-                        <li><a href="#" class="text-light">Private Parties</a></li>
-                        <li><a href="#" class="text-light">Entertainment Events</a></li>
-                        <li><a href="#" class="text-light">Event Production</a></li>
+                        <li><a href="#">Wedding Planning</a></li>
+                        <li><a href="#">Corporate Events</a></li>
+                        <li><a href="#">Private Parties</a></li>
+                        <li><a href="#">Entertainment Events</a></li>
+                        <li><a href="#">Event Production</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h6 class="mb-3">Newsletter</h6>
                     <p>Stay updated with our latest events and offers.</p>
-                    <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Your email">
-                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    <div class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email" aria-label="Email address">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <hr class="my-4">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 EventMantra. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="footer-container">
-                        <span>Designed with</span>
-                        <span class="heart">♥</span>
-                        <span>by</span>
-                        <span class="studio-name">
-                            <a href="https://www.noontechstudio.com/">Noon Tech Studio</a>
-                        </span>
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0">&copy; 2024 EventMantra. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="footer-container">
+                            <span>Designed with</span>
+                            <span class="heart">♥</span>
+                            <span>by</span>
+                            <span class="studio-name">
+                                <a href="https://www.noontechstudio.com/" target="_blank" rel="noopener noreferrer">Noon Tech Studio</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -1209,6 +1351,36 @@
             }
         };
 
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in-up');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Newsletter subscription functionality
+        document.querySelector('.newsletter-form .btn-primary').addEventListener('click', function() {
+            const emailInput = document.querySelector('.newsletter-form .form-control');
+            const email = emailInput.value.trim();
+            
+            if (email && email.includes('@')) {
+                alert('Thank you for subscribing to our newsletter!');
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+
+        // Add event listeners
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
