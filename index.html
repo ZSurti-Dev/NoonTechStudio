@@ -11,31 +11,6 @@
     <link rel="icon" type="image/x-icon" href="./assets/Favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!--     Adding Whatsapp API Code -->
-<style>
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .whatsapp-float:hover {
-            background-color: #1ebe57;
-        }
-    </style>
-
 </head>
 <body>
     <div class="cursor"></div>
@@ -597,29 +572,8 @@
                 </div> -->
             </div>
         </footer>
-        <a href="https://wa.me/919316499964?text=Hi%20I%20need%20more%20information" 
-       class="whatsapp-float" 
-       target="_blank">
-        &#x1F4F1;
     </a>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-messaging.js"></script>
-    <script>
-        // Your Firebase configuration object
-        const firebaseConfig = {
-            apiKey: "AIzaSyAVVffpU2DVKIbFcNArlEsQl2BOjiz0iAs",
-            authDomain: "noontechweb.firebaseapp.com",
-            projectId: "noontechweb",
-            storageBucket: "noontechweb.firebasestorage.app",
-            messagingSenderId: "372567095228",
-            appId: "1:372567095228:web:0bc176b4bb308d0f405db9"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const messaging = firebase.messaging();
-    </script>
 
     <script src="script.js"></script>
 </body>
